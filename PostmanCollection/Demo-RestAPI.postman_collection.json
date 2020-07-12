@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "4df06901-5e85-4f3d-9729-60282c9f5383",
+		"name": "RestAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fac1563-8a76-430b-ac1c-5b26621abe22",
+						"exec": [
+							"console.log(pm.response.text())"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"firstname\": \"Arun\",\r\n    \"lastname\": \"Annaldas\",\r\n    \"emailID\":\"test@test.com\",\r\n\t\"stream\":\"institutional\",\r\n\t\"location\":\"mumbai\",\r\n    \"age\": 17,\r\n    \"id\": {{EmployeeID}}\r\n }"
+				},
+				"url": {
+					"raw": "localhost:8081/api/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/api/employees/200",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"employees",
+						"200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\": \"Peter\",\r\n    \"lastname\": \"ThomasUpdated\",\r\n    \"emailID\":\"test@test.com\",\r\n\t\"stream\":\"institutional\",\r\n\t\"location\":\"mumbai\",\r\n    \"age\": 17\r\n}"
+				},
+				"url": {
+					"raw": "localhost:8081/api/employees/200",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"employees",
+						"200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"firstname\": \"Arun\",\r\n    \"lastname\": \"Annaldas\",\r\n    \"age\": 17,\r\n    \"id\": 5\r\n }"
+				},
+				"url": {
+					"raw": "localhost:8081/api/employees/200",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"employees",
+						"200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "de04ee38-06e5-4610-af6b-765e6d84ae5b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept-type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8081/api/employees",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
